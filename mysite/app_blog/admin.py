@@ -6,10 +6,12 @@ from .forms import ArticleImageForm
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('category',)
+    list_display = ('category', 'slug')
     prepopulated_fields = {'slug': ('category',)}
     fieldsets = (('', {
-      'fields': ('category', ),
+        'fields': ('category', ),
+        }), ((u'Додатково'), {
+        'fields': ('slug',),
     }),)
     
 admin.site.register(Category, CategoryAdmin)
@@ -34,7 +36,8 @@ class ArticleAdmin(admin.ModelAdmin):
     fieldsets = ( ('', {
         'fields': ('pub_date', 'title', 'description', 'main_page'),
         }), ((u'Додатково'), {
-        'classes': ('grp-collapse grp-closed',), 'fields': ('slug',),
+        'classes': ('grp-collapse grp-closed',),
+        'fields': ('slug',),
     }),)
 
     def delete_file(self, pk, request):
