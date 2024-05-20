@@ -50,7 +50,7 @@ class Article(models.Model):
                 'slug': self.slug})
         except:
             url = '/'
-            return url
+        return url
  
 
 class ArticleImage(models.Model):

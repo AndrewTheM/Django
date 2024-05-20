@@ -11,7 +11,7 @@
 
 <div class="fotorama">
     {% for image in images %}
-        <img src=‘{{ image.image.url }}’ alt="{{ image.description }}" data-caption="{{ image.description }}">
+        <img src="{{ image.image.url }}" alt="{{ image.description }}" data-caption="{{ image.description }}">
     {% endfor %}
 </div>
  
